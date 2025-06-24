@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Portafolio y Blog Personal - Alexis Trejo León</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Variables CSS para una paleta de colores coherente */
+      :root {
+        --primary-color: #3498db; /* Azul vibrante */
+        --secondary-color: #2c3e50; /* Gris azulado oscuro */
+        --accent-color: #e74c3c; /* Rojo de acento para botones/resaltes */
+        --light-bg-color: #f4f4f4; /* Fondo general muy claro */
+        --white-bg-color: #ffffff; /* Fondo para tarjetas/secciones específicas */
+        --dark-text-color: #333;
+        --light-text-color: #fff;
+        --grey-text-color: #555;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif; /* Aplica la fuente personalizada */
+        margin: 0;
+        line-height: 1.6;
+        color: var(--dark-text-color);
+        background-color: var(--light-bg-color);
+        scroll-behavior: smooth; /* Desplazamiento suave para la navegación */
+      }
+
+      /* Contenedor principal para centrar el contenido */
+      .container {
+        max-width: 1200px; /* Ancho máximo para el contenido */
+        margin: 0 auto;
+        padding: 0 20px; /* Padding a los lados para respiro en móviles */
+      }
+
+      /* --- Header --- */
+      header {
+        background: var(--secondary-color);
+        color: var(--light-text-color);
+        padding: 1.5rem 0;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: sticky; /* Sticky header para la navegación */
+        top: 0;
+        z-index: 1000; /* Asegura que esté por encima de otros elementos */
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2.2em;
+        color: var(--primary-color); /* Color de acento en el título */
+      }
+
+      /* --- Navegación --- */
+      nav ul {
+        padding: 0;
+        list-style: none;
+        margin: 10px 0 0 0;
+        display: flex; /* Flexbox para elementos en línea */
+        flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+        justify-content: center;
+        gap: 20px; /* Espacio entre elementos */
+      }
+
+      nav ul li a {
+        color: var(--light-text-color);
+        text-decoration: none; /* Sin subrayado */
+        padding: 8px 15px; /* Padding para el área de clic */
+        display: block; /* Para que el padding y el hover abarquen todo el área */
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para hover */
+      }
+
+      nav ul li a:hover,
+      nav ul li a:focus {
+        background: var(--primary-color);
+        color: var(--light-text-color);
+        outline: none;
+      }
+
+      /* --- Secciones Generales --- */
+      section {
+        padding: 60px 0; /* Más padding para secciones */
+        margin-bottom: 0; /* Reseteamos el margen inferior general, las secciones tendrán su propio espaciado si es necesario */
+        text-align: center;
+        border-bottom: 1px solid #eee; /* Separador sutil */
+      }
+
+      section:last-of-type {
+        border-bottom: none; /* No hay separador en la última sección */
+      }
+
+      section h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: var(--secondary-color);
+      }
+
+      /* Botones Modernos */
+      .btn {
+        background-color: var(--accent-color);
+        color: var(--light-text-color);
+        padding: 12px 25px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease; /* Efecto hover con transición suave */
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        display: inline-block; /* Para que el padding se aplique correctamente */
+      }
+
+      .btn:hover {
+        background-color: #c0392b; /* Tono más oscuro de acento al hover */
+      }
+
+      /* HERO SECTION */
+      #hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("https://images.pexels.com/photos/3183161/pexels-photo-3183161.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
+            no-repeat center center/cover; /* Fondo con linear-gradient y imagen */
+        color: var(--light-text-color);
+        padding: 100px 20px;
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #hero h2 {
+        font-size: 3.5em;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+
+      #hero p {
+        font-size: 1.3em;
+        max-width: 700px;
+        margin-bottom: 30px;
+      }
+
+      /* ABOUT SECTION */
+      #about .about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+
+      #about .profile-pic {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%; /* Foto de perfil circular */
+        object-fit: cover;
+        border: 5px solid var(--primary-color);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      #about .bio-text {
+        max-width: 800px;
+        text-align: justify;
+      }
+
+      .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .skill-item {
+        background-color: var(--primary-color);
+        color: var(--light-text-color);
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.9em;
+        font-weight: 600;
+      }
+
+      /* PORTFOLIO & BLOG SECTIONS: Diseño con Flexbox (cuadrícula de tarjetas) */
+      .grid-container {
+        display: grid; /* Usamos Grid para un diseño de cuadrícula flexible */
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(280px, 1fr)
+        ); /* Columnas responsivas */
+        gap: 30px; /* Espacio entre tarjetas */
+        margin-top: 40px;
+      }
+
+      .grid-item {
+        background-color: var(--white-bg-color);
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* box-shadow a las tarjetas */
+        overflow: hidden;
+        text-align: left;
+        transition: transform 0.3s ease;
+      }
+
+      .grid-item:hover {
+        transform: translateY(-8px); /* Efecto visual al pasar el mouse */
+      }
+
+      .grid-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .grid-item-content {
+        padding: 20px;
+      }
+
+      .grid-item-content h3 {
+        color: var(--secondary-color);
+        margin-top: 0;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+
+      .grid-item-content p {
+        font-size: 0.95em;
+        color: var(--grey-text-color);
+        margin-bottom: 15px;
+      }
+
+      .read-more {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+        cursor: pointer; /* Indicar que es clickeable */
+      }
+
+      .read-more:hover {
+        text-decoration: underline;
+      }
+
+      /* CONTACT SECTION */
+      #contact .contact-content {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      #contact form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+        text-align: left;
+      }
+
+      #contact form label {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      #contact form input[type="text"],
+      #contact form input[type="email"],
+      #contact form textarea {
+        width: calc(100% - 22px); /* Ajuste para padding y borde */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-family: "Poppins", sans-serif;
+        font-size: 1em;
+      }
+
+      #contact form textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      #contact form button {
+        background-color: var(--primary-color);
+        color: var(--light-text-color);
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.1em;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+        align-self: center; /* Centra el botón de envío en el formulario */
+      }
+
+      #contact form button:hover {
+        background-color: #2980b9; /* Tono más oscuro de azul */
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--secondary-color);
+        color: var(--light-text-color);
+        padding: 2rem 0;
+        text-align: center;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 40px; /* Margen para separar del contenido */
+      }
+
+      footer .social-links a {
+        color: var(--light-text-color);
+        font-size: 1.5em;
+        margin: 0 10px;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      footer .social-links a:hover {
+        color: var(--primary-color);
+      }
+
+      /* --- MODAL STYLES --- */
+      .modal-overlay {
+        display: flex; /* Cambiado a flex para centrar contenido */
+        visibility: hidden; /* Oculto por defecto, se hace visible con JS */
+        opacity: 0; /* Para una transición suave de opacidad */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.7
+        ); /* Fondo semitransparente oscuro */
+        justify-content: center;
+        align-items: center;
+        z-index: 2000; /* Asegura que esté por encima de todo */
+        overflow-y: auto; /* Permite scroll si el contenido es largo */
+        transition: opacity 0.3s ease, visibility 0.3s ease; /* Transición para aparecer/desaparecer */
+      }
+
+      .modal-overlay.active {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .modal-content {
+        background-color: var(--white-bg-color);
+        padding: 30px;
+        border-radius: 10px;
+        max-width: 800px;
+        width: 90%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        position: relative;
+        text-align: left;
+        max-height: 90vh; /* Altura máxima del contenido modal */
+        overflow-y: auto; /* Scroll interno si el contenido es muy largo */
+        transform: translateY(-50px); /* Para un efecto de entrada */
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      .modal-overlay.active .modal-content {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .close-button {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        font-size: 30px;
+        font-weight: bold;
+        color: #aaa;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .close-button:hover,
+      .close-button:focus {
+        color: var(--accent-color);
+      }
+
+      .modal-title {
+        color: var(--secondary-color);
+        font-size: 2em;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+      }
+
+      .modal-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        display: block; /* Asegura que ocupe su propia línea y respete el margin-bottom */
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .modal-text p {
+        margin-bottom: 15px;
+        text-align: justify;
+        color: var(--dark-text-color);
+      }
+
+      .modal-text ul {
+        list-style: disc;
+        margin-left: 20px;
+        margin-bottom: 15px;
+      }
+
+      .modal-text li {
+        margin-bottom: 8px;
+      }
+
+      .modal-link-btn {
+        margin-top: 20px;
+        display: inline-block; /* Asegura que se vea como botón */
+      }
+
+      /* Media Queries para Responsividad */
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 1.8em;
+        }
+
+        nav ul {
+          flex-direction: column;
+          gap: 10px;
+          margin-top: 15px;
+        }
+
+        nav ul li a {
+          padding: 10px;
+          width: 80%; /* Ocupa más ancho en móvil */
+          margin: 0 auto;
+        }
+
+        #hero h2 {
+          font-size: 2.5em;
+        }
+
+        #hero p {
+          font-size: 1em;
+        }
+
+        section {
+          padding: 40px 15px;
+        }
+
+        .grid-container {
+          grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+        }
+
+        .modal-content {
+          padding: 20px;
+          width: 95%; /* Más ancho en móviles */
+        }
+        .close-button {
+          top: 10px;
+          right: 15px;
+          font-size: 25px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header h1 {
+          font-size: 1.5em;
+        }
+
+        .btn {
+          padding: 10px 20px;
+          font-size: 0.9em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Alexis Trejo León</h1>
+        <nav>
+          <ul>
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#about">Acerca de Mí</a></li>
+            <li><a href="#portfolio">Portafolio</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero">
+        <div class="container">
+          <h2>¡Hola! Soy Alexis Trejo León</h2>
+          <p>
+            Estudiante de 2º semestre de Ingeniería Mecánica y Sistemas
+            Energéticos en la Universidad La Salle, con 17 años de ser
+            lasallista. Apasionado por la tecnología, la creación de soluciones
+            innovadoras, el mundo de los autos y sus modificaciones, y muy
+            interesado en la energía eléctrica. Actualmente, estoy diseñando una
+            barra para corregir el método del Dr. Ponseti. ¡Bienvenido a mi
+            espacio digital!
+          </p>
+          <button id="welcome-btn" class="btn">Conoce Más</button>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <h2>Acerca de Mí</h2>
+          <div class="about-content">
+            <img
+              src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt="Foto de perfil de Alexis Trejo León"
+              class="profile-pic"
+            />
+            <p class="bio-text">
+              Soy estudiante de 2º semestre de Ingeniería Mecánica y Sistemas
+              Energéticos en la Universidad La Salle, donde he tenido el
+              privilegio de formarme durante 17 años como lasallista. Mi
+              curiosidad me impulsa a explorar nuevas tecnologías y a buscar
+              soluciones creativas a problemas complejos. Tengo un gran interés
+              en el diseño y la optimización de sistemas energéticos, la
+              robótica y, especialmente, el fascinante mundo de los autos y sus
+              modificaciones. La energía eléctrica es un campo que me apasiona
+              profundamente por su potencial innovador. Actualmente, estoy
+              aplicando mis conocimientos en un emocionante proyecto de diseño
+              de una barra especializada para la corrección del pie equino varo,
+              siguiendo el método del Dr. Ponseti. Este portafolio es una
+              muestra de mis proyectos y mi camino de aprendizaje. Fuera de mis
+              estudios, disfruto leer ciencia ficción, practicar deportes y
+              aprender sobre nuevas tecnologías en movilidad.
+            </p>
+            <button id="fun-fact-btn" class="btn">Mostrar Dato Curioso</button>
+            <p
+              id="fun-fact-display"
+              style="
+                margin-top: 20px;
+                font-style: italic;
+                color: var(--grey-text-color);
+              "
+            ></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio">
+        <div class="container">
+          <h2>Mi Portafolio</h2>
+          <p>Algunos de mis proyectos destacados y áreas de interés.</p>
+          <div class="grid-container" id="portfolio-grid">
+            <div class="grid-item">
+              <img
+                src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="Diseño de Barra Ponseti"
+              />
+              <div class="grid-item-content">
+                <h3>Diseño Mecánico para Dispositivos Ortopédicos</h3>
+                <p>
+                  Mi proyecto actual de diseño de una barra mejorada para la
+                  corrección del pie equino varo utilizando principios de
+                  ingeniería mecánica para optimizar su ergonomía y eficacia.
+                </p>
+                <a href="#" class="read-more" data-id="proyecto1"
+                  >Detalles del Proyecto</a
+                >
+              </div>
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="Proyecto Autos Eléctricos"
+              />
+              <div class="grid-item-content">
+                <h3>
+                  Análisis y Optimización de Sistemas de Propulsión Eléctrica
+                  Automotriz
+                </h3>
+                <p>
+                  Investigación sobre la eficiencia de motores eléctricos y
+                  sistemas de baterías en vehículos de nueva generación,
+                  buscando soluciones para una mayor autonomía y rendimiento.
+                </p>
+                <a href="#" class="read-more" data-id="proyecto2"
+                  >Explorar Investigación</a
+                >
+              </div>
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://images.pexels.com/photos/10323861/pexels-photo-10323861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="Simulación Aerodinámica Automotriz"
+              />
+              <div class="grid-item-content">
+                <h3>
+                  Simulación Aerodinámica y Diseño de Componentes para
+                  Modificaciones de Autos
+                </h3>
+                <p>
+                  Aplicación de software de simulación para estudiar el flujo de
+                  aire y diseñar componentes que mejoren el rendimiento y la
+                  estabilidad de vehículos modificados.
+                </p>
+                <a href="#" class="read-more" data-id="proyecto3"
+                  >Ver Simulaciones</a
+                >
+              </div>
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="Proyecto de Robótica/Automatización"
+              />
+              <div class="grid-item-content">
+                <h3>
+                  Introducción a la Robótica Aplicada: Diseño de un Sistema
+                  Básico de Automatización
+                </h3>
+                <p>
+                  Exploración de actuadores, sensores y microcontroladores para
+                  crear soluciones automatizadas en entornos industriales o
+                  domésticos.
+                </p>
+                <a href="#" class="read-more" data-id="proyecto4"
+                  >Conocer Más</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="blog">
+        <div class="container">
+          <h2>Mi Blog</h2>
+          <p>
+            Pensamientos, tutoriales y novedades sobre ingeniería y tecnología.
+          </p>
+          <div class="grid-container" id="blog-grid">
+            <div class="grid-item">
+              <img
+                src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="Blog Post Energía Eléctrica"
+              />
+              <div class="grid-item-content">
+                <h3>
+                  El Impulso de la Energía Eléctrica: Más Allá de la Toma de
+                  Corriente
+                </h3>
+                <p>
+                  Analizo cómo la generación, transmisión y aplicación de la
+                  energía eléctrica están transformando industrias, desde la
+                  automotriz hasta la manufactura.
+                </p>
+                <a href="#" class="read-more" data-id="blog1"
+                  >Leer Artículo Completo</a
+                >
+              </div>
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="Blog Post Modificaciones Autos"
+              />
+              <div class="grid-item-content">
+                <h3>
+                  Modificaciones de Autos: Rendimiento, Personalización y la
+                  Ingeniería Detrás
+                </h3>
+                <p>
+                  Exploro las modificaciones más comunes en vehículos, desde
+                  ajustes de motor y suspensión hasta mejoras estéticas, y cómo
+                  la ingeniería juega un rol clave en cada una.
+                </p>
+                <a href="#" class="read-more" data-id="blog2">Descubre Más</a>
+              </div>
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://images.pexels.com/photos/2004161/pexels-photo-2004161.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="Blog Post Ingeniería y Sistemas Energéticos"
+              />
+              <div class="grid-item-content">
+                <h3>
+                  Sistemas Energéticos del Futuro: Retos y Oportunidades para
+                  Ingenieros Mecánicos
+                </h3>
+                <p>
+                  Analizo las nuevas fronteras en la eficiencia energética y las
+                  tecnologías sostenibles que definen el camino de la ingeniería
+                  moderna.
+                </p>
+                <a href="#" class="read-more" data-id="blog3">Ver Análisis</a>
+              </div>
+            </div>
+            <div class="grid-item">
+              <img
+                src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="Blog Post Proyecto Lasallista"
+              />
+              <div class="grid-item-content">
+                <h3>
+                  Mi Compromiso Lasallista y la Ingeniería con Propósito Social
+                </h3>
+                <p>
+                  Reflexiones sobre cómo la formación en La Salle impulsa
+                  proyectos como el diseño de la barra Ponseti, buscando
+                  soluciones ingenieriles para el bienestar social.
+                </p>
+                <a href="#" class="read-more" data-id="blog4"
+                  >Conoce mi Visión</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <h2>Contacto</h2>
+          <p>¿Tienes una idea o quieres colaborar? ¡Contáctame!</p>
+          <form id="contact-form" action="#" method="POST">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit" class="btn">Enviar Mensaje</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Alexis Trejo León. Todos los derechos reservados.</p>
+        <div class="social-links">
+          <a href="#" target="_blank" aria-label="Mi perfil de LinkedIn"
+            >LinkedIn</a
+          >
+          <a href="#" target="_blank" aria-label="Mi perfil de GitHub"
+            >GitHub</a
+          >
+          <a href="#" target="_blank" aria-label="Mi perfil de Twitter"
+            >Twitter</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <div id="detail-modal" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-button" aria-label="Cerrar modal">&times;</span>
+        <h3 id="modal-title" class="modal-title"></h3>
+        <img
+          id="modal-image"
+          src=""
+          alt=""
+          class="modal-image"
+          style="display: none"
+        />
+        <div id="modal-body-content" class="modal-text"></div>
+        <a
+          id="modal-link"
+          href="#"
+          target="_blank"
+          class="btn modal-link-btn"
+          style="display: none"
+          >Ver Demo/Repositorio</a
+        >
+      </div>
+    </div>
+
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Interacción de Bienvenida
+      const welcomeBtn = document.getElementById("welcome-btn");
+      if (welcomeBtn) {
+        welcomeBtn.addEventListener("click", function () {
+          alert(
+            "¡Hola! Soy Alexis. Gracias por visitar mi portafolio. ¡Espero que encuentres algo interesante sobre ingeniería, autos o energía!"
+          );
+        });
+      }
+
+      // Contenido Dinámico (Dato Curioso)
+      const funFactBtn = document.getElementById("fun-fact-btn");
+      const funFactDisplay = document.getElementById("fun-fact-display");
+      const funFacts = [
+        "Mi materia favorita de ingeniería hasta ahora es 'Circuitos Eléctricos', la conexión entre teoría y práctica me fascina!",
+        "Estoy investigando activamente cómo las modificaciones aerodinámicas pueden optimizar el consumo de energía en vehículos, no solo su velocidad.",
+        "Uno de mis mayores sueños es diseñar y construir un prototipo de vehículo eléctrico de alto rendimiento.",
+        "Además de estudiar, disfruto pasando tiempo en el taller, aprendiendo sobre motores y sistemas de suspensión.",
+        "Como lasallista desde hace 17 años, mi formación en la Universidad La Salle ha sido fundamental para mi enfoque en la innovación energética y mecánica, siempre con una visión humanista.",
+        "Actualmente, mi proyecto más emocionante es el diseño de una barra para la corrección del pie equino varo, aplicando principios de ingeniería mecánica para mejorar la salud de los niños. ¡Es un reto que me motiva mucho!",
+        "Me fascina cómo la ingeniería puede fusionarse con la medicina para crear soluciones que cambian vidas, como el método Ponseti, un área donde busco hacer mi aporte.",
+      ];
+      let lastFactIndex = -1;
+
+      if (funFactBtn && funFactDisplay) {
+        funFactBtn.addEventListener("click", function () {
+          let newFactIndex;
+          do {
+            newFactIndex = Math.floor(Math.random() * funFacts.length);
+          } while (newFactIndex === lastFactIndex);
+
+          funFactDisplay.textContent = funFacts[newFactIndex];
+          lastFactIndex = newFactIndex;
+        });
+      }
+
+      // Validación de Formulario
+      const contactForm = document.getElementById("contact-form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const message = document.getElementById("message").value.trim();
+
+          if (name === "" || email === "" || message === "") {
+            alert(
+              "¡Ups! Parece que olvidaste llenar algún campo. Por favor, completa todos los datos para enviar tu mensaje."
+            );
+          } else {
+            alert(
+              "¡Mensaje enviado con éxito! Agradezco tu interés y te responderé lo antes posible."
+            );
+            contactForm.reset();
+          }
+        });
+      }
+
+      // --- Lógica para Modales de Portafolio y Blog ---
+
+      // Datos detallados de Proyectos y Posts (se accede por ID)
+      const contentDetails = {
+        // Proyectos de Portafolio
+        proyecto1: {
+          title: "Diseño Mecánico para Dispositivos Ortopédicos: Barra Ponseti",
+          image:
+            "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+          text: `
+            <p>Este proyecto representa la aplicación directa de mis conocimientos en ingeniería mecánica al campo de la salud, específicamente en el área de la ortopedia pediátrica. Mi objetivo principal fue diseñar una barra de abducción mejorada para el tratamiento del Pie Equino Varo (Método Ponseti).</p>
+            <p>El desarrollo de esta barra se centró en varios pilares:</p>
+            <ul>
+              <li>Investigación exhaustiva sobre la biomecánica del pie infantil con PEV, para asegurar que el diseño de la barra optimice las fuerzas de corrección y minimice el estrés innecesario.</li>
+              <li>Selección de materiales avanzados (aleaciones ligeras, polímeros biocompatibles) para optimizar la relación resistencia-peso y la comodidad del bebé.</li>
+              <li>Modelado 3D detallado utilizando software CAD para la fase de diseño conceptual y desarrollo.</li>
+              <li>Análisis de Elementos Finitos (FEA) para simular las cargas y deformaciones, asegurando la integridad estructural y la seguridad del dispositivo bajo condiciones de uso.</li>
+              <li>Prototipado y pruebas de concepto para validar el diseño y realizar ajustes iterativos basados en los resultados.</li>
+            </ul>
+            <p>Este proyecto no solo es un desafío técnico, sino que también me permite contribuir a una causa social importante, mejorando la calidad de vida de niños con esta condición.</p>
+          `,
+          link: "https://www.ejemplo.com/proyecto-ponseti", // Ejemplo de enlace
+        },
+        proyecto2: {
+          title:
+            "Análisis y Optimización de Sistemas de Propulsión Eléctrica Automotriz",
+          image:
+            "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+          text: `
+            <p>Mi investigación en sistemas de propulsión eléctrica automotriz se enfoca en cómo mejorar la eficiencia y el rendimiento de los vehículos eléctricos (EVs).</p>
+            <p>Los puntos clave de mi trabajo incluyen:</p>
+            <ul>
+              <li>Estudio comparativo de diferentes arquitecturas de motores eléctricos (síncronos de imanes permanentes, asíncronos, etc.) y su aplicación en EVs.</li>
+              <li>Análisis de la densidad energética y ciclo de vida de diversas tecnologías de baterías (iones de litio, estado sólido) y sus sistemas de gestión térmica.</li>
+              <li>Optimización de la cadena cinemática del vehículo para minimizar las pérdidas de energía y maximizar la autonomía.</li>
+              <li>Modelado y simulación de sistemas de propulsión para predecir el comportamiento del vehículo bajo diferentes condiciones de conducción y carga.</li>
+              <li>Exploración de tecnologías de carga rápida y su impacto en la vida útil de la batería.</li>
+            </ul>
+            <p>El futuro de la movilidad es eléctrico, y mi objetivo es contribuir al desarrollo de soluciones más eficientes y sostenibles.</p>
+          `,
+          link: "https://www.ejemplo.com/investigacion-ev",
+        },
+        proyecto3: {
+          title:
+            "Simulación Aerodinámica y Diseño de Componentes para Modificaciones de Autos",
+          image:
+            "https://images.pexels.com/photos/10323861/pexels-photo-10323861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+          text: `
+            <p>En este proyecto, aplico principios de la mecánica de fluidos computacional (CFD) para analizar y optimizar el diseño de componentes automotrices, especialmente aquellos relacionados con la aerodinámica.</p>
+            <p>Mis actividades incluyen:</p>
+            <ul>
+              <li>Creación de modelos 3D de elementos aerodinámicos (alerones, difusores, bajos planos) y su integración en el diseño general del vehículo.</li>
+              <li>Realización de simulaciones CFD para visualizar el flujo de aire alrededor del vehículo, identificar áreas de alta resistencia o sustentación, y evaluar la eficacia de los diseños propuestos.</li>
+              <li>Interpretación de resultados de simulación para tomar decisiones de diseño informadas que mejoren la estabilidad, la tracción y la eficiencia de combustible (o autonomía en EVs).</li>
+              <li>Diseño de sistemas de refrigeración optimizados para motores y frenos, considerando el flujo de aire.</li>
+              <li>Exploración de materiales compuestos para reducir el peso de los componentes aerodinámicos sin comprometer su resistencia.</li>
+            </ul>
+            <p>Mi fascinación por los autos se combina con mi pasión por la ingeniería para llevar el rendimiento y la estética automotriz al siguiente nivel.</p>
+          `,
+          link: "https://www.ejemplo.com/simulacion-aerodinamica",
+        },
+        proyecto4: {
+          title:
+            "Introducción a la Robótica Aplicada: Diseño de un Sistema Básico de Automatización",
+          image:
+            "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+          text: `
+            <p>Este proyecto marca mi incursión en el emocionante mundo de la robótica y la automatización, centrándome en la creación de un sistema básico que demuestre principios fundamentales.</p>
+            <p>Los componentes del proyecto son:</p>
+            <ul>
+              <li>Selección y configuración de microcontroladores (como Arduino o Raspberry Pi) como el cerebro del sistema.</li>
+              <li>Integración de diversos sensores (distancia, luz, temperatura) para que el sistema pueda interactuar con su entorno.</li>
+              <li>Control de actuadores (servomotores, motores DC) para realizar movimientos o acciones específicas.</li>
+              <li>Desarrollo de lógica de programación básica para que el sistema responda a las entradas de los sensores y ejecute las acciones deseadas.</li>
+              <li>Diseño de la estructura mecánica del robot o sistema automatizado, asegurando la funcionalidad y estabilidad.</li>
+              <li>Exploración de la comunicación entre diferentes módulos del sistema (por ejemplo, Bluetooth o Wi-Fi para control remoto).</li>
+            </ul>
+            <p>La robótica ofrece un sinfín de posibilidades para mejorar procesos y solucionar problemas, y estoy emocionado de seguir explorando este campo.</p>
+          `,
+          link: "https://www.ejemplo.com/robotica-basica",
+        },
+        // Artículos de Blog
+        blog1: {
+          title:
+            "El Impulso de la Energía Eléctrica: Más Allá de la Toma de Corriente",
+          image:
+            "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+          text: `
+            <p>En este artículo, profundizo en cómo la energía eléctrica no solo alimenta nuestros hogares, sino que es el motor de una revolución industrial y tecnológica.</p>
+            <p>Los temas que abordo incluyen:</p>
+            <ul>
+              <li>Innovaciones en la generación de energía renovable (solar, eólica, geotérmica) y su integración en la red eléctrica.</li>
+              <li>Avances en la tecnología de transmisión de energía y la creación de redes inteligentes (smart grids).</li>
+              <li>El impacto de la electrificación en la industria del transporte, desde vehículos eléctricos personales hasta trenes de alta velocidad y aeronaves.</li>
+              <li>La relevancia de la energía eléctrica en la manufactura avanzada, la robótica y la automatización industrial.</li>
+              <li>Los desafíos y oportunidades en la gestión de la demanda energética y el almacenamiento de energía a gran escala.</li>
+            </ul>
+            <p>La energía eléctrica es un campo dinámico y crucial para un futuro sostenible y tecnológicamente avanzado.</p>
+          `,
+          link: "https://www.ejemplo.com/blog-energia-electrica",
+        },
+        blog2: {
+          title:
+            "Modificaciones de Autos: Rendimiento, Personalización y la Ingeniería Detrás",
+          image:
+            "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+          text: `
+            <p>Este post explora el apasionante mundo de las modificaciones automotrices, viendo más allá de la estética para entender la ingeniería que las sustenta.</p>
+            <p>Cubrimos aspectos como:</p>
+            <ul>
+              <li>Modificaciones de motor: desde reprogramaciones de ECU hasta la instalación de turbocargadores y sistemas de escape de alto rendimiento, y cómo afectan la potencia y el torque.</li>
+              <li>Mejoras de suspensión y chasis: la importancia de amortiguadores, muelles, barras estabilizadoras y el diseño de la geometría de la suspensión para el manejo y la seguridad.</li>
+              <li>Aerodinámica funcional: cómo alerones, difusores y kits de carrocería no solo cambian la apariencia, sino que mejoran el agarre y la estabilidad a altas velocidades.</li>
+              <li>Sistemas de frenos: la necesidad de mejorar los frenos al aumentar la potencia y las opciones disponibles (discos ventilados, pinzas multipistón, materiales de pastillas).</li>
+              <li>La legalidad y seguridad de las modificaciones: la importancia de realizar cambios responsables y conocer las regulaciones locales.</li>
+            </ul>
+            <p>Las modificaciones de autos son una combinación de arte, pasión y ciencia, donde cada cambio es un ejercicio de ingeniería.</p>
+          `,
+          link: "https://www.ejemplo.com/blog-modificaciones-autos",
+        },
+        blog3: {
+          title:
+            "Sistemas Energéticos del Futuro: Retos y Oportunidades para Ingenieros Mecánicos",
+          image:
+            "https://images.pexels.com/photos/2004161/pexels-photo-2004161.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+          text: `
+            <p>En este artículo, analizo las tendencias emergentes en sistemas energéticos y el papel crucial que los ingenieros mecánicos desempeñarán en su desarrollo y optimización.</p>
+            <p>Se abordan temas como:</p>
+            <ul>
+              <li>Transición energética: el cambio de combustibles fósiles a fuentes de energía renovable y los desafíos técnicos asociados.</li>
+              <li>Almacenamiento de energía: la importancia de tecnologías como baterías avanzadas, almacenamiento de energía térmica y energía de hidrógeno para la estabilidad de la red.</li>
+              <li>Eficiencia energética: el diseño de sistemas y procesos que minimicen el consumo de energía en industrias y edificaciones.</li>
+              <li>Energía nuclear de próxima generación: la evolución de los reactores nucleares hacia diseños más seguros y eficientes.</li>
+              <li>Geotermia y energía mareomotriz: el potencial de fuentes de energía menos exploradas y las innovaciones en su aprovechamiento.</li>
+            </ul>
+            <p>Los ingenieros mecánicos están a la vanguardia de la creación de soluciones energéticas innovadoras y sostenibles para el futuro.</p>
+          `,
+          link: "https://www.ejemplo.com/blog-sistemas-energeticos",
+        },
+        blog4: {
+          title:
+            "Mi Compromiso Lasallista y la Ingeniería con Propósito Social",
+          image:
+            "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+          text: `
+            <p>En este post, comparto mi perspectiva sobre cómo mi formación en la Universidad La Salle ha influido en mi enfoque de la ingeniería, impulsándome a buscar proyectos con un impacto social positivo.</p>
+            <p>Reflexiones clave incluyen:</p>
+            <ul>
+              <li>Los valores lasallistas y cómo se traducen en la práctica de la ingeniería: ética, servicio y compromiso con la comunidad.</li>
+              <li>La importancia de la ingeniería inclusiva y accesible, como el diseño de dispositivos ortopédicos para niños.</li>
+              <li>Cómo la educación en La Salle fomenta la resolución de problemas complejos con una visión holística y humanista.</li>
+              <li>El papel del ingeniero como agente de cambio social, utilizando la tecnología para abordar desafíos globales.</li>
+              <li>La motivación personal detrás de mis proyectos, impulsada por el deseo de aplicar mis habilidades para el bienestar de los demás.</li>
+            </ul>
+            <p>Ser lasallista es más que una identidad; es un compromiso de vida para construir un mundo mejor a través de la innovación y el servicio.</p>
+          `,
+          link: "https://www.ejemplo.com/blog-lasallista",
+        },
+      };
+
+      const modalOverlay = document.getElementById("detail-modal");
+      const closeButton = document.querySelector(".close-button");
+      const modalTitle = document.getElementById("modal-title");
+      const modalImage = document.getElementById("modal-image");
+      const modalBodyContent = document.getElementById("modal-body-content");
+      const modalLink = document.getElementById("modal-link");
+
+      // Función para abrir el modal
+      function openModal(id) {
+        const content = contentDetails[id];
+        if (content) {
+          modalTitle.textContent = content.title;
+          modalBodyContent.innerHTML = content.text;
+
+          // Manejo de la imagen en el modal
+          if (content.image) {
+            modalImage.src = content.image;
+            modalImage.alt = content.title;
+            modalImage.style.display = "block"; // Muestra la imagen
+          } else {
+            modalImage.style.display = "none"; // Oculta si no hay imagen
+          }
+
+          // Manejo del enlace en el modal
+          if (content.link && content.link !== "#") {
+            modalLink.href = content.link;
+            modalLink.style.display = "inline-block"; // Muestra el botón
+          } else {
+            modalLink.style.display = "none"; // Oculta si no hay enlace válido
+          }
+
+          modalOverlay.classList.add("active"); // Activa el modal con transición
+          document.body.style.overflow = "hidden"; // Evita el scroll del cuerpo
+        }
+      }
+
+      // Función para cerrar el modal
+      function closeModal() {
+        modalOverlay.classList.remove("active"); // Desactiva el modal con transición
+        document.body.style.overflow = "auto"; // Restaura el scroll del cuerpo
+      }
+
+      // Asignar eventos de clic a los enlaces "Leer Más" / "Detalles del Proyecto"
+      document.querySelectorAll(".read-more").forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault(); // Evita que el enlace salte
+          const id = this.getAttribute("data-id");
+          openModal(id);
+        });
+      });
+
+      // Evento para cerrar el modal al hacer clic en la "x"
+      closeButton.addEventListener("click", closeModal);
+
+      // Evento para cerrar el modal al hacer clic fuera del contenido del modal
+      modalOverlay.addEventListener("click", function (e) {
+        if (e.target === modalOverlay) {
+          closeModal();
+        }
+      });
+
+      // Evento para cerrar el modal con la tecla Escape
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && modalOverlay.classList.contains("active")) {
+          closeModal();
+        }
+      });
+    </script>
+  </body>
+</html>
+``` -----
